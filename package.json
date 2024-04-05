@@ -1,0 +1,58 @@
+{
+  "name": "react",
+  "version": "1.0.0",
+  "description": "React example starter project",
+  "keywords": [
+    "react",
+    "starter"
+  ],
+  "main": "src/index.js",
+  "dependencies": {
+    "@tiptap-pro/extension-table-of-contents": "latest",
+    "@hocuspocus/provider": "2.8.1",
+    "@tiptap/core": "2.1.13",
+    "@tiptap/extension-character-count": "2.1.13",
+    "@tiptap/extension-collaboration": "2.1.13",
+    "@tiptap/extension-collaboration-cursor": "2.1.13",
+    "@tiptap/extension-highlight": "2.1.13",
+    "@tiptap/extension-task-item": "2.1.13",
+    "@tiptap/extension-task-list": "2.1.13",
+    "@tiptap/pm": "2.1.13",
+    "@tiptap/react": "2.1.13",
+    "@tiptap/starter-kit": "2.1.13",
+    "loader-utils": "3.2.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-scripts": "5.0.1",
+    "remixicon": "3.6.0",
+    "y-indexeddb": "9.0.12",
+    "y-prosemirror": "1.0.20",
+    "y-protocols": "1.0.6",
+    "yjs": "13.6.10"
+  },
+  "devDependencies": {
+    "@babel/runtime": "7.13.8",
+    "@types/react": "18.2.38",
+    "@types/react-dom": "18.0.9",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.2.0",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.0.0",
+    "eslint-plugin-react-refresh": "^0.4.4",
+    "loader-utils": "3.2.1",
+    "sass": "latest",
+    "typescript": "4.1.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
