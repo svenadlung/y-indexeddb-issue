@@ -8,7 +8,6 @@
   ],
   "main": "src/index.js",
   "dependencies": {
-    "@tiptap-pro/extension-table-of-contents": "latest",
     "@hocuspocus/provider": "2.8.1",
     "@tiptap/core": "2.1.13",
     "@tiptap/extension-character-count": "2.1.13",
