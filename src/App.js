@@ -1,33 +1,44 @@
 import "./styles.scss";
 
-import * as Y from "yjs";
+import React, { useEffect, useMemo } from "react";
+import { Editor, EditorContent } from "@tiptap/react";
+import { Collaboration } from "@tiptap/extension-collaboration";
+import { StarterKit } from "@tiptap/starter-kit";
 import { TiptapCollabProvider } from "@hocuspocus/provider";
 import { IndexeddbPersistence } from "y-indexeddb";
+import * as Y from "yjs";
 
-import Editor from "./Editor";
+const DOC_NAME_SUFFIX = 135;
 
-// Increase for creating a new, empty document
-const DOC_NAME_SUFFIX = 22;
-
-const appId = "7j9y6m10";
 const room = `room.${new Date().getFullYear().toString().slice(-2)}${
   new Date().getMonth() + 1
 }${new Date().getDate()}-a-${DOC_NAME_SUFFIX}`;
 
-const ydocA = new Y.Doc();
-const providerA = new TiptapCollabProvider({
-  appId: appId,
-  name: room,
-  document: ydocA,
-});
-
-// Offline persistence
-if (ydocA) {
-  new IndexeddbPersistence(`offline-data-${DOC_NAME_SUFFIX}`, ydocA);
-}
-
 const App = () => {
-  return <Editor provider={providerA} ydoc={ydocA} room={room} />;
+  const ydoc = useMemo(() => new Y.Doc(), []);
+
+  useEffect(() => {
+    new TiptapCollabProvider({
+      appId: "7j9y6m10",
+      name: room,
+      document: ydoc,
+    });
+
+    new IndexeddbPersistence(`offline-data-${DOC_NAME_SUFFIX}`, ydoc);
+  }, []);
+
+  const editor = new Editor({
+    extensions: [
+      StarterKit.configure({
+        history: false,
+      }),
+      Collaboration.configure({
+        document: ydoc,
+      }),
+    ],
+  });
+
+  return <EditorContent className="editor-content" editor={editor} />;
 };
 
 export default App;
